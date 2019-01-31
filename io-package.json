@@ -1,0 +1,79 @@
+{
+    "common": {
+        "name": "custom-widgets",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "custom-widgets",
+        "titleLang": {
+            "en": "custom-widgets",
+            "de": "benutzerdefinierte Widgets",
+            "ru": "таможенно-виджеты",
+            "pt": "widgets personalizados",
+            "nl": "custom-widgets",
+            "fr": "widgets personnalisés",
+            "it": "custom-widget",
+            "es": "widgets personalizados",
+            "pl": "niestandardowe widżety",
+            "zh-cn": "定制控件"
+        },
+        "desc": {
+            "en": "selfmade widgets",
+            "de": "selbstgemachte Widgets",
+            "ru": "самодельные виджеты",
+            "pt": "widgets selfmade",
+            "nl": "zelfgemaakte widgets",
+            "fr": "widgets faits maison",
+            "it": "widget selfmade",
+            "es": "widgets hechos a sí mismos",
+            "pl": "selfmade widżety",
+            "zh-cn": "自制小部件"
+        },
+        "authors": [
+            "sdo <sdo@gmx.de>"
+        ],
+        "keywords": [
+            "ioBroker",
+            "template",
+            "Smart Home",
+            "home automation"
+        ],
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "custom-widgets.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/sdo/ioBroker.custom-widgets/master/admin/custom-widgets.png",
+        "readme": "https://github.com/sdo/ioBroker.custom-widgets/blob/master/README.md",
+        "loglevel": "info",
+        "restartAdapters": [
+            "vis"
+        ],
+        "localLink": "%web_protocol%://%ip%:%web_port%/vis/edit.html",
+        "onlyWWW": true,
+        "noConfig": true,
+        "singleton": true,
+        "type": "visualization-widgets",
+        "mode": "once",
+        "dependencies": [
+            "vis"
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}

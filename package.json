@@ -1,0 +1,33 @@
+{
+  "name": "iobroker.custom-widgets",
+  "version": "0.0.1",
+  "description": "selfmade widgets",
+  "author": {
+    "name": "sdo",
+    "email": "sdo@gmx.de"
+  },
+  "homepage": "https://github.com/sdo/ioBroker.custom-widgets",
+  "license": "MIT",
+  "keywords": [
+    "ioBroker",
+    "template",
+    "Smart Home",
+    "home automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sdo/ioBroker.custom-widgets"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/gulp": "^4.0.5",
+    "axios": "^0.18.0",
+    "gulp": "^4.0.0"
+  },
+  "main": "widgets/custom-widgets.html",
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/sdo/ioBroker.custom-widgets/issues"
+  },
+  "readmeFilename": "README.md"
+}

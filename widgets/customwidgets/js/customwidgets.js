@@ -1,5 +1,5 @@
 /*
-    ioBroker.vis custom-widgets Widget-Set
+    ioBroker.vis customwidgets Widget-Set
 
     version: "0.0.1"
 
@@ -8,19 +8,19 @@
 "use strict";
 
 // add translations for edit mode
-$.get( "adapter/custom-widgets/words.js", function(script) {
+$.get( "adapter/customwidgets/words.js", function(script) {
     let translation = script.substring(script.indexOf('{'), script.length);
     translation = translation.substring(0, translation.lastIndexOf(';'));
     $.extend(systemDictionary, JSON.parse(translation));
 });
 
-// this code can be placed directly in custom-widgets.html
-vis.binds["custom-widgets"] = {
+// this code can be placed directly in customwidgets.html
+vis.binds["customwidgets"] = {
     version: "0.0.1",
     showVersion: function () {
-        if (vis.binds["custom-widgets"].version) {
-            console.log('Version custom-widgets: ' + vis.binds["custom-widgets"].version);
-            vis.binds["custom-widgets"].version = null;
+        if (vis.binds["customwidgets"].version) {
+            console.log('Version customwidgets: ' + vis.binds["customwidgets"].version);
+            vis.binds["customwidgets"].version = null;
         }
     },
 
@@ -388,4 +388,4 @@ vis.binds["custom-widgets"] = {
     }
 };
 
-vis.binds["custom-widgets"].showVersion();
+vis.binds["customwidgets"].showVersion();

@@ -168,7 +168,7 @@ vis.binds["customwidgets"] = {
 			vis.states.bind(oid + '.val', function (e, newVal, oldVal) {
 				vis.binds.jqueryui.activeHelper($this, newVal, min, max, _value, reverse);
 			});
-			vis.binds.hueSwitches.activeHelper($this, vis.states.attr(oid + '.val'), min, max, _value, reverse);
+			vis.binds.customwidgets.activeHelper($this, vis.states.attr(oid + '.val'), min, max, _value, reverse);
 		}
 	},
 		
@@ -185,7 +185,7 @@ vis.binds["customwidgets"] = {
 		}
 	
 		$this.css({position: 'absolute'});
-		vis.binds.hueSwitches.active(el, reverse, _value);
+		vis.binds.customwidgets.active(el, reverse, _value);
 	},
 		
 	dialog: function (el, options, persistent, preload, html, closeOnClick) {

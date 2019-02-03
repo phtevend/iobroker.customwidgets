@@ -1,6 +1,6 @@
 {
     "common": {
-        "name": "custom-widgets",
+        "name": "customwidgets",
         "version": "0.0.1",
         "news": {
             "0.0.1": {
@@ -16,13 +16,13 @@
                 "zh-cn": "首次出版"
             }
         },
-        "title": "custom-widgets",
+        "title": "customwidgets",
         "titleLang": {
-            "en": "custom-widgets",
+            "en": "customwidgets",
             "de": "benutzerdefinierte Widgets",
             "ru": "таможенно-виджеты",
             "pt": "widgets personalizados",
-            "nl": "custom-widgets",
+            "nl": "customwidgets",
             "fr": "widgets personnalisés",
             "it": "custom-widget",
             "es": "widgets personalizados",
@@ -52,10 +52,10 @@
         ],
         "platform": "Javascript/Node.js",
         "main": "main.js",
-        "icon": "custom-widgets.png",
+        "icon": "customwidgets.png",
         "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/sdo/ioBroker.custom-widgets/master/admin/custom-widgets.png",
-        "readme": "https://github.com/sdo/ioBroker.custom-widgets/blob/master/README.md",
+        "extIcon": "https://raw.githubusercontent.com/sdo/ioBroker.customwidgets/master/admin/customwidgets.png",
+        "readme": "https://github.com/sdo/ioBroker.customwidgets/blob/master/README.md",
         "loglevel": "info",
         "restartAdapters": [
             "vis"

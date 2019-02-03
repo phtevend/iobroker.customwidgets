@@ -135,8 +135,8 @@
             bri: this.data.attr('oid_bri'),
         };
         %>
-        <div data-oid="<%= hueIDs.on %>" class="vis-widget <%= this.data.attr('asButton') ? ' ui-widget ui-button ui-corner-all ui-state-default' : '' %> <%= this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width:76px; height:76px; position:absolute" <%= (el) -> vis.binds.mywidgets.classes(el) %>>
-        <div id="<%= this.data.attr('wid') %>_body" class="vis-widget-body" style="width:100%; height:100%; background-color: rgb(34,34,34)" <%= (el) -> vis.preloadImages(['widgets/jqui-mfd/img/light_light_dim_100.png','widgets/jqui-mfd/img/light_light_dim_90.png','widgets/jqui-mfd/img/light_light_dim_80.png','widgets/jqui-mfd/img/light_light_dim_70.png','widgets/jqui-mfd/img/light_light_dim_60.png','widgets/jqui-mfd/img/light_light_dim_50.png','widgets/jqui-mfd/img/light_light_dim_40.png','widgets/jqui-mfd/img/light_light_dim_30.png','widgets/jqui-mfd/img/light_light_dim_20.png','widgets/jqui-mfd/img/light_light_dim_10.png','widgets/jqui-mfd/img/light_light_dim.png']); %>>
+        <div data-oid="<%= hueIDs.on %>" class="vis-widget <%= this.data.attr('asButton') ? ' ui-widget ui-button ui-corner-all ui-state-default' : '' %> <%= this.data.attr('class') %>" id="<%= this.data.attr('wid') %>" style="width:76px; height:76px; position:absolute" <%= (el) -> vis.binds.custom-widgets.classes(el) %>>
+        <div id="<%= this.data.attr('wid') %>_body" class="vis-widget-body" style="width:100%; height:100%; background-color: rgb(34,34,34)" <%= (el) -> vis.preloadImages(['widgets/custom-widgets/img/light_light_dim_100.png','widgets/custom-widgets/img/light_light_dim_90.png','widgets/custom-widgets/img/light_light_dim_80.png','widgets/custom-widgets/img/light_light_dim_70.png','widgets/custom-widgets/img/light_light_dim_60.png','widgets/custom-widgets/img/light_light_dim_50.png','widgets/custom-widgets/img/light_light_dim_40.png','widgets/custom-widgets/img/light_light_dim_30.png','widgets/custom-widgets/img/light_light_dim_20.png','widgets/custom-widgets/img/light_light_dim_10.png','widgets/custom-widgets/img/light_light_dim.png']); %>>
         <% 
         var on = vis.states.attr(hueIDs.on + '.val');
         var str = vis.states.attr(hueIDs.level + '.val');
@@ -156,7 +156,7 @@
             var bri = parseFloat(strBri)/255;
             if (!isNaN(hue) && !isNaN(sat) && !isNaN(bri))
             {
-            var rgb = vis.binds.mywidgets.hue2rgb(hue, sat, 1);
+            var rgb = vis.binds.custom-widgets.hue2rgb(hue, sat, 1);
             %>
             <div style="background-color: rgb(<%= rgb.r %>,<%= rgb.g %>,<%= rgb.b %>)">
             <%
@@ -181,60 +181,60 @@
         if (val == 1)
         {
         %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_100.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_100.png"/>
         <% } else if (val >= 0.9) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_90.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_90.png"/>
         <% } else if (val >= 0.8) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_80.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_80.png"/>
         <% } else if (val >= 0.7) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_70.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_70.png"/>
         <% } else if (val >= 0.6) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_60.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_60.png"/>
         <% } else if (val >= 0.5) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_50.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_50.png"/>
         <% } else if (val >= 0.4) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_40.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_40.png"/>
         <% } else if (val >= 0.3) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_30.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_30.png"/>
         <% } else if (val >= 0.2) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_20.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_20.png"/>
         <% } else if (val >= 0.1) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_10.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_10.png"/>
         <% } else if (val >= 0.01) { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim_00.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim_00.png"/>
         <% } else { %>
-        <img style="<%= styles %>" width="100%" src="widgets/jqui-mfd/img/light_light_dim.png"/>
+        <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/light_light_dim.png"/>
         <% } %>
         </div>
         <div id="<%= this.data.attr('wid') %>_dialog" class="vis-widget-dialog" style="padding-left:20px;">
             <br/>
-            <span id="<%= this.data.attr('wid') %>_radio"  data-oid="<%= hueIDs.on %>" <%= (el) -> vis.binds.mywidgets.radio(el); %> >
+            <span id="<%= this.data.attr('wid') %>_radio"  data-oid="<%= hueIDs.on %>" <%= (el) -> vis.binds.custom-widgets.radio(el); %> >
             <input type="radio" id="<%= this.data.attr('wid') %>_radioOff" name="<%= this.data.attr('wid') %>_radio" value="0" checked="checked"/><label for="<%= this.data.attr('wid') %>_radioOff"><%= this.data.attr('textOff') || _('off') %></label>
             <input type="radio" id="<%= this.data.attr('wid') %>_radioOn"  name="<%= this.data.attr('wid') %>_radio" value="1"/><label for="<%= this.data.attr('wid') %>_radioOn"><%= this.data.attr('textOn') || _('on') %></label>
             </span>
             
-            <span style="padding-left: 25px" id="<%= this.data.attr('wid') %>_radio_cm"  data-oid="<%= hueIDs.colormode %>" <%= (el) -> vis.binds.mywidgets.radio(el); %> >
+            <span style="padding-left: 25px" id="<%= this.data.attr('wid') %>_radio_cm"  data-oid="<%= hueIDs.colormode %>" <%= (el) -> vis.binds.custom-widgets.radio(el); %> >
             <input type="radio" id="<%= this.data.attr('wid') %>_radio_cm_ct" name="<%= this.data.attr('wid') %>_radio_cm" value="ct" checked="checked"/><label for="<%= this.data.attr('wid') %>_radio_cm_ct">weiß</label>
             <input type="radio" id="<%= this.data.attr('wid') %>_radio_cm_hs" name="<%= this.data.attr('wid') %>_radio_cm" value="hs"/><label for="<%= this.data.attr('wid') %>_radio_cm_hs">farbe</label>
             </span>
             
             <br/><br/>
             Helligkeit
-            <div class="sliderJQUI" style="width:90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= hueIDs.level %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.mywidgets.slider(el, hueIDs.level, {min:0,max:100,step:1}) %> />
+            <div class="sliderJQUI" style="width:90%" id="<%= this.data.attr('wid') %>_slider" data-oid="<%= hueIDs.level %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.custom-widgets.slider(el, hueIDs.level, {min:0,max:100,step:1}) %> />
             <br/>
             
             <br/>
             <div class="hue-mode-ct">
-            <div class="sliderJQUI hue-slider-ct" style="width:90%" id="<%= this.data.attr('wid') %>_hue_ct_slider" data-oid="<%= hueIDs.ct %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.mywidgets.slider(el, hueIDs.ct, {min:153,max:500,step:1}) %> />
+            <div class="sliderJQUI hue-slider-ct" style="width:90%" id="<%= this.data.attr('wid') %>_hue_ct_slider" data-oid="<%= hueIDs.ct %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.custom-widgets.slider(el, hueIDs.ct, {min:153,max:500,step:1}) %> />
             </div>
             <div class="hue-mode-hue">
-            <div class="sliderJQUI hue-slider-hue" style="width:90%" id="<%= this.data.attr('wid') %>_hue_hue_slider" data-oid="<%= hueIDs.hue %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.mywidgets.slider(el, hueIDs.hue, {min:0,max:65535,step:1}) %> />                 <br/>
+            <div class="sliderJQUI hue-slider-hue" style="width:90%" id="<%= this.data.attr('wid') %>_hue_hue_slider" data-oid="<%= hueIDs.hue %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.custom-widgets.slider(el, hueIDs.hue, {min:0,max:65535,step:1}) %> />                 <br/>
             Sättigung
-            <div class="sliderJQUI hue-slider-sat" style="width:90%" id="<%= this.data.attr('wid') %>_hue_sat_slider" data-oid="<%= hueIDs.sat %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.mywidgets.slider(el, hueIDs.sat, {min:0,max:255,step:1}) %> />
+            <div class="sliderJQUI hue-slider-sat" style="width:90%" id="<%= this.data.attr('wid') %>_hue_sat_slider" data-oid="<%= hueIDs.sat %>" data-hm-wid="<%= this.data.attr('oid-working') %>" <%= (el) -> vis.binds.custom-widgets.slider(el, hueIDs.sat, {min:0,max:255,step:1}) %> />
             </div>
         </div>
-        <div class="pupup-helper" <%= (el) -> vis.binds.mywidgets.hueColormode(el, hueIDs.colormode) %> />
-        <div class="popup-helper" <%= (el) -> vis.binds.mywidgets.dialog(el,{width:440,height:300,modal:data.attr('modal')},true) %> />
+        <div class="pupup-helper" <%= (el) -> vis.binds.custom-widgets.hueColormode(el, hueIDs.colormode) %> />
+        <div class="popup-helper" <%= (el) -> vis.binds.custom-widgets.dialog(el,{width:440,height:300,modal:data.attr('modal')},true) %> />
 
     </div>
 </script>
@@ -257,9 +257,9 @@
         }
         if (this.data.attr('iconColor')) {
         %>
-            <img style="<%= styles %>" width="100%" src="widgets/mywidgets/img/sani_heating_temp.svg" <%= (el) -> vis.binds.jqueryui.setSvgColor(el, this.data.attr('iconColor')) %>/>
+            <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/sani_heating_temp.svg" <%= (el) -> vis.binds.jqueryui.setSvgColor(el, this.data.attr('iconColor')) %>/>
         <% } else { %>
-            <img style="<%= styles %>" width="100%" src="widgets/mywidgets/img/sani_heating_temp.png"/>
+            <img style="<%= styles %>" width="100%" src="widgets/custom-widgets/img/sani_heating_temp.png"/>
         <% } %>
     </div>
     <div id="<%= this.data.attr('wid') %>_dialog" class="<%= this.data.attr('wid') %>_dialog vis-widget-dialog" title="<%== this.data.title || this.data.attr('oid') %>" style="padding-left:25px;">

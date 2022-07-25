@@ -1,6 +1,6 @@
 {
   "name": "iobroker.customwidgets",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "selfmade widgets",
   "author": {
     "name": "sdo",
@@ -18,7 +18,9 @@
     "type": "git",
     "url": "https://github.com/sdo/ioBroker.custom-widgets"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tinycolor": "latest"
+  },
   "devDependencies": {
     "@types/gulp": "^4.0.5",
     "axios": "^0.18.0",

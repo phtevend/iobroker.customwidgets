@@ -2,3 +2,28 @@
 .custom-widgets-class {
     font-style: italic;
 }
+
+.custom-hue-slider-hue.ui-slider {
+    background-image: url(../img/hue.png);
+    background-size: 101%;
+}
+
+.custom-hue-slider-ct.ui-slider {
+    background-image: url(../img/ct.png);
+    background-size: 101%;
+}
+
+.custom-hue-slider.ui-slider {
+    height: 1.8em;
+}
+
+div.custom-hue-slider.ui-slider > span.ui-slider-handle {
+    height: 1.8em;
+    width: 1.1em;
+    top: -0.1em;
+}
+
+span.radio-custom-size > label > span.ui-button-text {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}

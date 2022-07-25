@@ -7,13 +7,6 @@
 */
 "use strict";
 
-// add translations for edit mode
-$.get( "adapter/customwidgets/words.js", function(script) {
-    let translation = script.substring(script.indexOf('{'), script.length);
-    translation = translation.substring(0, translation.lastIndexOf(';'));
-    $.extend(systemDictionary, JSON.parse(translation));
-});
-
 // this code can be placed directly in customwidgets.html
 vis.binds["customwidgets"] = {
     version: "0.0.1",
@@ -72,6 +65,43 @@ vis.binds["customwidgets"] = {
 		});
 	},	
 		
+	satColorSlider: function (el, oid_hue, oid_on, oid_colormode) {
+		if (vis.states.attr(oid_colormode + '.val') != 'ct')
+		{
+			var hue = parseFloat(vis.states.attr(oid_hue + '.val'))/360;
+			var rgb = vis.binds.customwidgets.hue2rgb(hue, 1, 1);
+			$(el).css({background: 'linear-gradient(to right, rgb(255, 255, 255), rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')'});
+		}
+
+		vis.states.bind(oid_hue + '.val', function (e, newVal, oldVal)
+		{
+			if (vis.states.attr(oid_colormode + '.val') != 'ct')
+			{
+				var hue = parseFloat(vis.states.attr(oid_hue + '.val'))/360;
+				var rgb = vis.binds.customwidgets.hue2rgb(hue, 1, 1);
+				$(el).css({background: 'linear-gradient(to right, rgb(255, 255, 255), rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')'});
+			}
+		});
+		vis.states.bind(oid_on + '.val', function (e, newVal, oldVal)
+		{
+			if (vis.states.attr(oid_colormode + '.val') != 'ct')
+			{
+				var hue = parseFloat(vis.states.attr(oid_hue + '.val'))/360;
+				var rgb = vis.binds.customwidgets.hue2rgb(hue, 1, 1);
+				$(el).css({background: 'linear-gradient(to right, rgb(255, 255, 255), rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')'});
+			}
+		});
+		vis.states.bind(oid_colormode + '.val', function (e, newVal, oldVal)
+		{
+			if (vis.states.attr(oid_colormode + '.val') != 'ct')
+			{
+				var hue = parseFloat(vis.states.attr(oid_hue + '.val'))/360;
+				var rgb = vis.binds.customwidgets.hue2rgb(hue, 1, 1);
+				$(el).css({background: 'linear-gradient(to right, rgb(255, 255, 255), rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b + ')'});
+			}
+		});
+	},	
+
     radio: function (el, options, process) {
 		if (!process) {
 			setTimeout(function () {
@@ -278,37 +308,23 @@ vis.binds["customwidgets"] = {
 			}
 		}
 	},
-		
-	slider: function (el, oidHue, options) {
+	
+	slider: function (el, oidValue, options) {
         var $this = $(el);
-        var oid = oidHue;
-        var oid2 = $this.attr('data-oid2');
+        var oid = oidValue;
         var oid_val = 0;
-        var oid2_val = 0;
         var wid = $this.attr("data-oid-working");
-        var wid2 = $this.attr("data-oid2-working");
         var settings = $.extend({
-            range: oid2 ? true : false,
             min: 0,
             max: 100,
             step: 1,
             value: parseFloat(vis.states.attr(oid + '.val')),
             slide: function (e, ui) {
                 // Slider -> Observable
+                if (options.inverted) ui.value = (settings.max - ui.value) + settings.min;
+                vis.setValue(oid, ui.value); //.toFixed(6));
 
-                if (oid2) {
-                    if (options.inverted) {
-                        ui.values[0] = (settings.max - ui.values[0]) + settings.min;
-                        ui.values[1] = (settings.max - ui.values[1]) + settings.min;
-                    }
-
-                    vis.setValue(oid, ui.values[0]); //.toFixed(6));
-                    vis.setValue(oid2, ui.values[1]); //.toFixed(6));
-                } else {
-                    if (options.inverted) ui.value = (settings.max - ui.value) + settings.min;
-                    vis.setValue(oid, ui.value); //.toFixed(6));
-                }
-
+				//$(el).css({background: 'green'});
             }
         }, options);
 
@@ -338,39 +354,12 @@ vis.binds["customwidgets"] = {
                     oid_val = parseFloat(newVal);
                 }
                 if ($this.slider('instance')) {
-                    if (oid2) {
-                        $this.slider('values', [oid_val, oid2_val]);
-                    } else {
-                        $this.slider('value', oid_val);
-                    }
-                }
+                    $this.slider('value', oid_val);
+				}
+
+				//$(el).css({background: 'green'});
             }
         });
-        if (oid2) {
-            vis.states.bind(oid2 + '.val', function (e, newVal, oldVal) {
-    //                     console.log("slider newVal="+JSON.stringify(newVal));
-                // If device not in working state
-                if (!vis.states.attr(wid2 + '.val')) {
-                    oid2_val = parseFloat(newVal);
-                    if (settings.inverted) {
-                        oid2_val = (settings.max - parseFloat(newVal)) + settings.min;
-                    } else {
-                        oid2_val = parseFloat(newVal);
-                    }
-                    if ($this.slider('instance')) {
-                        $this.slider('values', [oid_val, oid2_val]);
-                    }
-                }
-            });
-
-            oid_val = vis.states.attr(oid + '.val');
-            oid2_val = vis.states.attr(oid2 + '.val');
-            if (settings.inverted) {
-                oid_val = (settings.max - oid_val) + settings.min;
-                oid2_val = (settings.max - oid2_val) + settings.min;
-            }
-            $this.slider('values', [oid_val, oid2_val]);
-        }
 
         $(function () {
             $("#slider-range").slider({
@@ -385,7 +374,7 @@ vis.binds["customwidgets"] = {
             $("#amount").val("$" + $("#slider-range").slider("values", 0) +
                     " - $" + $("#slider-range").slider("values", 1));
         })
-    }
+	}
 };
 
 vis.binds["customwidgets"].showVersion();

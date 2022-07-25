@@ -1,0 +1,21 @@
+{
+    "cli": true,
+    "target": "directory",
+    "adapterName": "template",
+    "description": "Template for adapter development",
+    "authorName": "Author",
+    "authorGithub": "Author",
+    "authorEmail": "author@mail.com",
+    "gitRemoteProtocol": "HTTPS",
+    "dependabot": "yes",
+    "license": "MIT License",
+    "releaseScript": "yes",
+    "gitCommit": "no",
+    "defaultBranch": "main",
+    "features": [
+        "vis"
+    ],
+    "title": "Template (VIS only)",
+    "type": "visualization-widgets",
+    "creatorVersion": "2.1.1"
+}

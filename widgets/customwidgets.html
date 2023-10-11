@@ -136,7 +136,7 @@
             </div>
         </div>
         <div class="pupup-helper" <%= (el) -> vis.binds.customwidgets.hueColormode(el, hueIDs.colormode) %> />
-        <div class="popup-helper" <%= (el) -> vis.binds.customwidgets.dialog(el,{width:460,height:200,modal:data.attr('modal')},true) %> />
+        <div class="popup-helper" <%= (el) -> vis.binds.jqueryui.dialog(el,{width:460,height:200,modal:data.attr('modal')},true) %> />
 
     </div>
 </script>
